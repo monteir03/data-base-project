@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Makes{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table>
+  <tr>
+    <th><b>Make_Id</b></th>
+    <th><b>Make</b></th>
+   </tr>
+
+  {% for m in makes %}
+    <tr>
+      <td><a href="/makes/{{ m.Make_Id }}">{{m.Make_Id}}</a></td>
+      <td>{{ m.Make }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

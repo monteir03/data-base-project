@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ group.GroupName }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Group info</h2>
+  <p>
+    <b>Group_Id: </b>{{ group.Group_Id }}
+  </p>
+  <p>
+    <b>Name: </b>{{ group.GroupName }}
+  </p>
+  <p>
+    <b>Year: </b>{{ group.Found_Year}}
+  </p>
+  <p>
+    <b>Countries: </b><ul>
+    {% for c in country %}
+      <li>{{c.Country}}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+  <p>
+    <b>Leaders: </b><ul>
+    {% for l  in lider %}
+      <li><a href="/makes/{{ l.Make_Id }}">{{l.Make}}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+  <p>
+    <b>Subsidiarys: </b><ul>
+    {% for m  in makes %}
+      <li><a href="/makes/{{ m.Make_Id }}">{{m.Make}}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+{% endblock %}

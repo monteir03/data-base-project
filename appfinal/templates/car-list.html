@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Cars{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table>
+  <tr>
+    <th><b>CarCode</b></th>
+    <th><b>Model</b></th>
+    <th><b>Generation</b></th>
+    <th><b>YearFrom</b></th>
+    <th><b>YearTo</b></th>
+    <th><b>Trim</b></th>
+    <th><b>MotorType</b></th>
+    <th><b>Cylinders</b></th>
+    <th><b>EngineType</b></th>
+   </tr>
+
+  {% for c in cars %}
+    <tr>
+      <td><a href="/cars/{{ c.CarCode }}">{{ c.CarCode }}</a></td>
+      <td>{{ c.Model }}</td>
+      <td>{{ c.Generation }}</td>
+      <td>{{ c.YearFrom }}</td>
+      <td>{{ c.YearTo }}</td>
+      <td>{{ c.Trim }}</td>
+      <td>{{ c.MotorType }}</td>
+      <td>{{ c.Cylinders }}</td>
+      <td>{{ c.EngineType }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

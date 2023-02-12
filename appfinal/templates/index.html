@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Cars database {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2>About</h2>
+<p>This web application illustrates the use of the Cars
+database. The application is built using
+<a href="https://pymysql.readthedocs.io/">PyMySQL</a>,
+<a href="https://flask.palletsprojects.com">Flask</a>, and
+<a href="https://jinja.palletsprojects.com">Jinja</a>.
+</p>
+
+<h2>Some database statistics</h2>
+<table>
+<tr>
+  <th>Items</th>
+  <th>Count</th>
+</tr>
+<tr>
+  <td>Cars</td>
+  <td>{{ stats.Cars }}</td>
+</tr>
+<tr>
+  <td>Makes</td>
+  <td>{{ stats.Makes }}</td>
+</tr>
+<tr>
+  <td>Grupos</td>
+  <td>{{ stats.Grupos }}</td>
+</tr>
+</table>
+
+
+<h2>Sample functionality</h2>
+
+<h3>Cars</h3>
+<p>
+   <a href="/cars">List all</a>
+</p>
+<p>Get car info:
+<form name="cid" action="javascript:window.open('/cars/'+document.forms['cid'].elements['code'].value,'_self')">
+   Car Code:<input value="123" name="code" type="number" min="0"/><input type="submit" value="get"/>
+</form>
+</p>
+
+<p>Search by model:
+<form name="csearch" action="javascript:window.open('/cars/search/'+document.forms['csearch'].elements['expr'].value,'_self')">
+  <input name="expr" id="expr" value="Cobra" required/>
+  <input type="submit" value="search"/>
+</form>
+</p>
+
+<h3>Makes</h3>
+<p>
+   <a href="/makes">List all</a>
+</p>
+<p>Get make info:
+<form name="aid" action="javascript:window.open('/makes/'+document.forms['aid'].elements['id'].value,'_self')">
+   Make Id:<input value="12" name="id" id="id" type="number" min="0"/><input type="submit" value="get"/>
+</form>
+</p>
+
+<p>Search by make (prone to <a href="https://en.wikipedia.org/wiki/SQL_injection">SQL injection</a>!)
+  <form name="msearch" action="javascript:window.open('/makes/search/'+document.forms['msearch'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" value="Mer" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<h3>Groups</h3>
+<p>
+   <a href="/groups">List all</a>
+</p>
+
+<p>Get group info:
+<form name="gid" action="javascript:window.open('/groups/'+document.forms['gid'].elements['id'].value,'_self')">
+   Group Id:<input value="1" name="id" type="number" min="0"/><input type="submit" value="get"/>
+</form>
+</p>
+
+
+<h3>Bodytypes</h3>
+<p>
+   <a href="/bodytypes">List all</a>
+</p>
+
+<p>Get bodytype info:
+<form name="gid" action="javascript:window.open('/bodytypes/'+document.forms['gid'].elements['id'].value,'_self')">
+   Bodytype Id:<input value="1" name="id" type="number" min="0"/><input type="submit" value="get"/>
+</form>
+</p>
+
+{% endblock %}

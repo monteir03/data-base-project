@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}BodyType {{ bodytype.Code }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>BodyType info</h2>
+  <p><ul>
+  <li>
+    <b>Code: </b>{{ bodytype.Code }}
+  </li>
+  <li>
+    <b>BodyType: </b>{{ bodytype.Name }}
+  </li>
+  </ul></p>
+{% endblock %}

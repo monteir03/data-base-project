@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ car.Model }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Car info</h2>
+  <p>
+    <b>CarCode: </b>{{ car.CarCode }}
+  </p>
+  <p>
+    <b>Make: </b> <a href="/makes/{{ makes.Make_Id }}">{{makes.Make}}</a>
+  </p>
+  <p>
+    <b>Model: </b>{{ car.Model }}
+  </p>
+  <p>
+    <b>Generation: </b>{{ car.Generation }}
+  </p>
+  <p>
+    <b>YearFrom: </b>{{ car.YearFrom }}
+  </p>
+  <p>
+    <b>YearTo: </b>{{ car.YearTo }}
+  </p>
+  <p>
+    <b>Trim: </b>{{ car.Trim }}
+  </p>
+  <p>
+    <b>MotorType: </b>{{ car.MotorType }}
+  </p>
+  <p>
+    <b>Cylinders: </b>{{ car.Cylinders }}
+  </p>
+  <p>
+    <b>EngineType: </b>{{ car.EngineType }}
+  </p>
+  <p>
+    <b>Bodytype: </b> <a href="/bodytypes/{{ bodytypes.Code }}">{{ bodytypes.Name }}</a>
+  </p>
+
+{% endblock %}

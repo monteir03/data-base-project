@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Groups{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table>
+  <tr>
+    <th><b>Name</b></th>
+  </tr>
+  {% for g in groups %}
+    <tr>
+      <td><a href="/groups/{{ g.Group_Id }}">{{ g.GroupName }}</a></td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

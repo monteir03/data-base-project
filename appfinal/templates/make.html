@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ make.Make }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Make info</h2>
+  <p>
+    <b>Make_Id: </b>{{ make.Make_Id }}
+  </p>
+  <p>
+    <b>Make: </b>{{ make.Make }}
+  </p>
+  <p>
+    <b>Country: </b>{{ make.Country }}
+  </p>
+  <p>
+    <b>Foundation: </b>{{ make.Found_Year }}
+  </p>
+  <p>
+    <b>Group: </b> <a href="/groups/{{ groups.Group_Id }}">{{ groups.GroupName }}</a>
+  </p>
+  <p>
+    <b>Brand BodyTypes: </b><ul>
+    {% for b  in BBT %}
+      <li><a href="/bodytypes/{{b.BodyType}}/">{{b.Name}}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+  
+{% endblock %}
